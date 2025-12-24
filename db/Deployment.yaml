@@ -7,11 +7,12 @@ spec:
   selector:
     matchLabels:
       app: mongo
-  templete:
+  template:
     metadata:
-      app: mongo
-  spec:
-    containers:
+      labels:
+        app: mongo
+    spec:
+      containers:
       - name: mongo
         image: mongo:7
         args: ["--dbpath", "/data/db"]
@@ -23,7 +24,7 @@ spec:
         volumeMounts:
           - mountPath: "/data/db"
             name: mongo-volume
-    volumes:
+      volumes:
       - name: mongo-volume
         persistentVolumeClaim:
           claimName: mongo-pvc
