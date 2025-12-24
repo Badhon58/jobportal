@@ -1,35 +1,4 @@
 # -------------------------
-# PersistentVolume (EBS-backed)
-# -------------------------
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: gp2-csi
-parameters:
-  type: gp2
-  fsType: ext4
-provisioner: ebs.csi.aws.com
-volumeBindingMode: WaitForFirstConsumer
-reclaimPolicy: Delete
-
----
-# -------------------------
-# PersistentVolumeClaim (EBS-backed)
-# -------------------------
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mongo-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
-  storageClassName: gp2 # Use the default EBS gp3 StorageClass in EKS
-
----
-# -------------------------
 # MongoDB Deployment
 # -------------------------
 apiVersion: apps/v1

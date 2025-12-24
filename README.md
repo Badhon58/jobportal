@@ -79,7 +79,20 @@ $ Kubectl get nodes
 $ Kubectl get svc
 ```
 
+---
+
 # Step 5
+
+Create A Adon in Our Cluster
+
+```
+eksctl create addon \
+  --name aws-ebs-csi-driver \
+  --cluster cluster1 \
+  --force
+```
+
+# Step 6
 
 - Create The Mongo DB with aws.esk.ebs.storage class
 
@@ -116,3 +129,8 @@ spec:
 
 ```
 
+Delete The Cluster
+
+```
+eksctl delete cluster --name cluster1 --region ap-south-1
+```
