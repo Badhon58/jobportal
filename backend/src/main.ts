@@ -6,13 +6,18 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const corsOptions = {
-    origin: (origin: any, callback: any) => {
-      // allow requests with no origin (Postman, curl, mobile apps)
-      if (!origin) {
-        return callback(null, true);
-      }
-      return callback(null, origin);
-    },
+    // origin: (origin: any, callback: any) => {
+    //   // allow requests with no origin (Postman, curl, mobile apps)
+    //   if (!origin) {
+    //     return callback(null, true);
+    //   }
+    //   return callback(null, origin);
+    // },
+    origin: [
+      'http://localhost:3000',
+      'http://13.126.159.42:3000',
+      'http://13.126.159.42:5000',
+    ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: [
