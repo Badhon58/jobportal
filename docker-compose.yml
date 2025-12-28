@@ -28,7 +28,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - 3001:3000
     networks:
       - mern-app
     env_file: ./frontend/.env
