@@ -18,7 +18,8 @@ async function bootstrap() {
     ],
     exposedHeaders: ['Set-Cookie'],
   };
-  app.enableCors(corsOptions);
+  // app.enableCors(corsOptions);
+  app.enableCors();
   // swager set up
   const config = new DocumentBuilder()
     .setTitle('Job Portal App')

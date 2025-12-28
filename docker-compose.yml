@@ -8,8 +8,8 @@ services:
     volumes:
       - mongodb_data:/data/db
     environment:
-      - MONGO_INITDB_ROOT=admin
-      - MONGO_INITDB_PASSWORD=badhon
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=badhon
   backend:
     build:
       context: ./backend
@@ -17,7 +17,7 @@ services:
     ports:
       - 5000:5000
     depends_on:
-      - mongo
+      - database
     env_file:
       - ./backend/.env
     networks:
