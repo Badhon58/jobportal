@@ -87,6 +87,10 @@ systemctl restart docker
 # Install gitleaks For Check any confidential code are there
 sudo apt install gitleaks
 
+# Install libatomic1
+sudo apt update
+sudo apt install libatomic1
+
 # Install trivy for docker image scanner
 sudo apt-get install wget gnupg
 wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
