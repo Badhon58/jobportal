@@ -1,8 +1,0 @@
-hello World
-
-eksctl create addon \
-  --name aws-ebs-csi-driver \
-  --cluster newcluster \
-  --force
-
-eksctl create addon   --name aws-ebs-csi-driver   --cluster newcluster   --force
